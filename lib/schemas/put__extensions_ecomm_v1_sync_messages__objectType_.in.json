@@ -1,0 +1,86 @@
+{
+    "type": "object",
+    "properties": {
+        "objectType": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "CONTACT",
+                "COMPANY",
+                "DEAL",
+                "ENGAGEMENT",
+                "TICKET",
+                "OWNER",
+                "PRODUCT",
+                "LINE_ITEM",
+                "BET_DELIVERABLE_SERVICE",
+                "CONTENT",
+                "CONVERSATION",
+                "BET_ALERT",
+                "PORTAL",
+                "QUOTE",
+                "FORM_SUBMISSION_INBOUNDDB",
+                "QUOTA",
+                "UNSUBSCRIBE",
+                "COMMUNICATION",
+                "FEEDBACK_SUBMISSION",
+                "ATTRIBUTION",
+                "SALESFORCE_SYNC_ERROR",
+                "RESTORABLE_CRM_OBJECT",
+                "HUB",
+                "LANDING_PAGE",
+                "UNKNOWN"
+            ]
+        },
+        "requestBody": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": [
+                    "action",
+                    "changeOccurredTimestamp",
+                    "integratorObjectId",
+                    "propertyNameToValues"
+                ],
+                "properties": {
+                    "action": {
+                        "type": "string",
+                        "enum": [
+                            "UPSERT",
+                            "DELETE"
+                        ],
+                        "x-hubspot-external-project-origin": true
+                    },
+                    "changeOccurredTimestamp": {
+                        "type": "string",
+                        "format": "date-time"
+                    },
+                    "integratorObjectId": {
+                        "type": "string"
+                    },
+                    "propertyNameToValues": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "example": {
+                    "allOf": [
+                        {
+                            "action": "UPSERT",
+                            "changeOccurredTimestamp": 1525462886781
+                        },
+                        {
+                            "integratorObjectId": "12345",
+                            "propertyNamesToValues": {
+                                "given_name": "Mary",
+                                "family_name": "Smith"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

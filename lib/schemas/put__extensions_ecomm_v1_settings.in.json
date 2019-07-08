@@ -1,0 +1,288 @@
+{
+    "type": "object",
+    "properties": {
+        "showProvidedProperties": {
+            "required": false,
+            "type": "boolean"
+        },
+        "appId": {
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+        },
+        "requestBody": {
+            "type": "object",
+            "required": [
+                "contactSyncSettings",
+                "dealSyncSettings",
+                "enabled",
+                "importOnInstall",
+                "lineItemSyncSettings",
+                "productSyncSettings"
+            ],
+            "properties": {
+                "enabled": {
+                    "type": "boolean"
+                },
+                "importOnInstall": {
+                    "type": "boolean"
+                },
+                "productSyncSettings": {
+                    "type": "object",
+                    "required": [
+                        "properties"
+                    ],
+                    "properties": {
+                        "properties": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "required": [
+                                    "dataType",
+                                    "propertyName",
+                                    "targetHubspotProperty"
+                                ],
+                                "properties": {
+                                    "propertyName": {
+                                        "type": "string",
+                                        "example": "given_name",
+                                        "description": "The name of the data field as defined in your system."
+                                    },
+                                    "dataType": {
+                                        "type": "string",
+                                        "example": "STRING",
+                                        "description": "The type of this property. One of STRING, NUMBER, DATETIME, AVATAR_IMAGE.",
+                                        "enum": [
+                                            "STRING",
+                                            "NUMBER",
+                                            "DATETIME",
+                                            "AVATAR_IMAGE"
+                                        ],
+                                        "x-hubspot-external-project-origin": true
+                                    },
+                                    "targetHubspotProperty": {
+                                        "type": "string",
+                                        "example": "firstname",
+                                        "description": "The internal name of the HubSpot property to map to."
+                                    }
+                                },
+                                "description": "Defines a mapping between a property in your system and a property in the HubSpot CRM."
+                            }
+                        }
+                    }
+                },
+                "dealSyncSettings": {
+                    "type": "object",
+                    "required": [
+                        "properties"
+                    ],
+                    "properties": {
+                        "properties": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "required": [
+                                    "dataType",
+                                    "propertyName",
+                                    "targetHubspotProperty"
+                                ],
+                                "properties": {
+                                    "propertyName": {
+                                        "type": "string",
+                                        "example": "given_name",
+                                        "description": "The name of the data field as defined in your system."
+                                    },
+                                    "dataType": {
+                                        "type": "string",
+                                        "example": "STRING",
+                                        "description": "The type of this property. One of STRING, NUMBER, DATETIME, AVATAR_IMAGE.",
+                                        "enum": [
+                                            "STRING",
+                                            "NUMBER",
+                                            "DATETIME",
+                                            "AVATAR_IMAGE"
+                                        ],
+                                        "x-hubspot-external-project-origin": true
+                                    },
+                                    "targetHubspotProperty": {
+                                        "type": "string",
+                                        "example": "firstname",
+                                        "description": "The internal name of the HubSpot property to map to."
+                                    }
+                                },
+                                "description": "Defines a mapping between a property in your system and a property in the HubSpot CRM."
+                            }
+                        }
+                    }
+                },
+                "lineItemSyncSettings": {
+                    "type": "object",
+                    "required": [
+                        "properties"
+                    ],
+                    "properties": {
+                        "properties": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "required": [
+                                    "dataType",
+                                    "propertyName",
+                                    "targetHubspotProperty"
+                                ],
+                                "properties": {
+                                    "propertyName": {
+                                        "type": "string",
+                                        "example": "given_name",
+                                        "description": "The name of the data field as defined in your system."
+                                    },
+                                    "dataType": {
+                                        "type": "string",
+                                        "example": "STRING",
+                                        "description": "The type of this property. One of STRING, NUMBER, DATETIME, AVATAR_IMAGE.",
+                                        "enum": [
+                                            "STRING",
+                                            "NUMBER",
+                                            "DATETIME",
+                                            "AVATAR_IMAGE"
+                                        ],
+                                        "x-hubspot-external-project-origin": true
+                                    },
+                                    "targetHubspotProperty": {
+                                        "type": "string",
+                                        "example": "firstname",
+                                        "description": "The internal name of the HubSpot property to map to."
+                                    }
+                                },
+                                "description": "Defines a mapping between a property in your system and a property in the HubSpot CRM."
+                            }
+                        }
+                    }
+                },
+                "contactSyncSettings": {
+                    "type": "object",
+                    "required": [
+                        "properties"
+                    ],
+                    "properties": {
+                        "properties": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "required": [
+                                    "dataType",
+                                    "propertyName",
+                                    "targetHubspotProperty"
+                                ],
+                                "properties": {
+                                    "propertyName": {
+                                        "type": "string",
+                                        "example": "given_name",
+                                        "description": "The name of the data field as defined in your system."
+                                    },
+                                    "dataType": {
+                                        "type": "string",
+                                        "example": "STRING",
+                                        "description": "The type of this property. One of STRING, NUMBER, DATETIME, AVATAR_IMAGE.",
+                                        "enum": [
+                                            "STRING",
+                                            "NUMBER",
+                                            "DATETIME",
+                                            "AVATAR_IMAGE"
+                                        ],
+                                        "x-hubspot-external-project-origin": true
+                                    },
+                                    "targetHubspotProperty": {
+                                        "type": "string",
+                                        "example": "firstname",
+                                        "description": "The internal name of the HubSpot property to map to."
+                                    }
+                                },
+                                "description": "Defines a mapping between a property in your system and a property in the HubSpot CRM."
+                            }
+                        }
+                    }
+                }
+            },
+            "example": {
+                "dealSyncSettings": {
+                    "properties": [
+                        {
+                            "propertyName": "order_total",
+                            "dataType": "NUMBER",
+                            "targetHubspotProperty": "amount"
+                        },
+                        {
+                            "propertyName": "customer_id",
+                            "dataType": "STRING",
+                            "targetHubspotProperty": "hs_assoc__contact_ids"
+                        },
+                        {
+                            "propertyName": "purchase_date",
+                            "dataType": "DATETIME",
+                            "targetHubspotProperty": "closedate"
+                        },
+                        {
+                            "propertyName": "stage",
+                            "dataType": "STRING",
+                            "targetHubspotProperty": "dealstage"
+                        }
+                    ],
+                    "type": "object"
+                },
+                "importOnInstall": true,
+                "lineItemSyncSettings": {
+                    "properties": [
+                        {
+                            "propertyName": "order_id",
+                            "dataType": "STRING",
+                            "targetHubspotProperty": "hs_assoc__deal_id"
+                        },
+                        {
+                            "propertyName": "product_id",
+                            "dataType": "STRING",
+                            "targetHubspotProperty": "hs_assoc__product_id"
+                        }
+                    ],
+                    "type": "object"
+                },
+                "contactSyncSettings": {
+                    "properties": [
+                        {
+                            "propertyName": "given_name",
+                            "dataType": "STRING",
+                            "targetHubspotProperty": "firstname"
+                        },
+                        {
+                            "propertyName": "family_name",
+                            "dataType": "STRING",
+                            "targetHubspotProperty": "lastname"
+                        },
+                        {
+                            "propertyName": "email",
+                            "dataType": "STRING",
+                            "targetHubspotProperty": "email"
+                        }
+                    ],
+                    "type": "object"
+                },
+                "enabled": true,
+                "productSyncSettings": {
+                    "properties": [
+                        {
+                            "propertyName": "product_name",
+                            "dataType": "STRING",
+                            "targetHubspotProperty": "productname"
+                        },
+                        {
+                            "propertyName": "imageUrl",
+                            "dataType": "AVATAR_IMAGE",
+                            "targetHubSpotProperty": "ip__ecomm_bridge__image_url"
+                        }
+                    ],
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

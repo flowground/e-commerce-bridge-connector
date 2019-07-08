@@ -1,0 +1,74 @@
+{
+    "type": "object",
+    "properties": {
+        "pageNumber": {
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+        },
+        "objectType": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "CONTACT",
+                "COMPANY",
+                "DEAL",
+                "ENGAGEMENT",
+                "TICKET",
+                "OWNER",
+                "PRODUCT",
+                "LINE_ITEM",
+                "BET_DELIVERABLE_SERVICE",
+                "CONTENT",
+                "CONVERSATION",
+                "BET_ALERT",
+                "PORTAL",
+                "QUOTE",
+                "FORM_SUBMISSION_INBOUNDDB",
+                "QUOTA",
+                "UNSUBSCRIBE",
+                "COMMUNICATION",
+                "FEEDBACK_SUBMISSION",
+                "ATTRIBUTION",
+                "SALESFORCE_SYNC_ERROR",
+                "RESTORABLE_CRM_OBJECT",
+                "HUB",
+                "LANDING_PAGE",
+                "UNKNOWN"
+            ]
+        },
+        "importStartedAt": {
+            "required": true,
+            "type": "integer",
+            "format": "int64"
+        },
+        "requestBody": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "required": [
+                    "integratorObjectId",
+                    "propertyNameToValues"
+                ],
+                "properties": {
+                    "integratorObjectId": {
+                        "type": "string"
+                    },
+                    "propertyNameToValues": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "example": {
+                    "integratorObjectId": "12345",
+                    "propertyNamesToValues": {
+                        "given_name": "Mary",
+                        "family_name": "Smith"
+                    }
+                }
+            }
+        }
+    }
+}

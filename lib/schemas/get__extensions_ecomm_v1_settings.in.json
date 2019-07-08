@@ -1,0 +1,14 @@
+{
+    "type": "object",
+    "properties": {
+        "showProvidedProperties": {
+            "required": false,
+            "type": "boolean"
+        },
+        "appId": {
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+        }
+    }
+}

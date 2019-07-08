@@ -1,0 +1,15 @@
+{
+    "name": "e-commerce-bridge-connector",
+    "version": "1.0.0",
+    "description": "The ECommerce Bridge provides a process for syncing eCommerce data into HubSpot by defining mappings from your data schema to what is stored in HubSpot and applying those mappings each time data is sent. To learn more about the motivations, use cases, and see a walkthrough, check out [the overview docs](https://git.hubteam.com/HubSpot/IntegrationsPlatform-ECommBridge/blob/master/docs/api/reference.md)",
+    "main": "component.json",
+    "dependencies": {
+        "elasticio-node": "0.0.9",
+        "elasticio-sailor-nodejs": "^2.2.1",
+        "swagger-client": "^3.8.22"
+    },
+    "author": {
+        "name": "Deutsche Telekom AG"
+    },
+    "license": "Apache-2.0"
+}

@@ -1,0 +1,81 @@
+{
+    "type": "object",
+    "properties": {
+        "appId": {
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+        },
+        "errorType": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "UNKNOWN_ERROR",
+                "INACTIVE_PORTAL",
+                "NO_SYNC_SETTINGS",
+                "SETTINGS_NOT_ENABLED",
+                "BAD_SETTINGS",
+                "EMPTY_MESSAGE",
+                "NO_MAPPINGS_DEFINED",
+                "MISSING_REQUIRED_PROPERTY",
+                "NO_PROPERTIES_DEFINED",
+                "NO_DEFINED_PROPERTIES",
+                "INVALID_ASSOCIATION_PROPERTY",
+                "MISSING_ASSOCIATED_OBJECT",
+                "INVALID_DEAL_STAGE",
+                "INVALID_EMAIL_ADDRESS",
+                "PORTAL_NOT_SYNC_ENABLED",
+                "CREATE_FAIL_NO_INFO",
+                "UPDATE_FAIL_NO_INFO",
+                "DELETE_FAIL_NO_INFO",
+                "INVALID_ENUM_PROPERTY",
+                "ERROR_INVALID_DATE_PROPERTY"
+            ]
+        },
+        "objectType": {
+            "required": false,
+            "type": "string",
+            "enum": [
+                "CONTACT",
+                "COMPANY",
+                "DEAL",
+                "ENGAGEMENT",
+                "TICKET",
+                "OWNER",
+                "PRODUCT",
+                "LINE_ITEM",
+                "BET_DELIVERABLE_SERVICE",
+                "CONTENT",
+                "CONVERSATION",
+                "BET_ALERT",
+                "PORTAL",
+                "QUOTE",
+                "FORM_SUBMISSION_INBOUNDDB",
+                "QUOTA",
+                "UNSUBSCRIBE",
+                "COMMUNICATION",
+                "FEEDBACK_SUBMISSION",
+                "ATTRIBUTION",
+                "SALESFORCE_SYNC_ERROR",
+                "RESTORABLE_CRM_OBJECT",
+                "HUB",
+                "LANDING_PAGE",
+                "UNKNOWN"
+            ]
+        },
+        "showResolvedErrors": {
+            "required": false,
+            "type": "boolean"
+        },
+        "limit": {
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+        },
+        "offset": {
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+        }
+    }
+}

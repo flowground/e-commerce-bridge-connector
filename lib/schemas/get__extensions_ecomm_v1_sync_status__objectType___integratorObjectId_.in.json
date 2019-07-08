@@ -1,0 +1,40 @@
+{
+    "type": "object",
+    "properties": {
+        "objectType": {
+            "required": true,
+            "type": "string",
+            "enum": [
+                "CONTACT",
+                "COMPANY",
+                "DEAL",
+                "ENGAGEMENT",
+                "TICKET",
+                "OWNER",
+                "PRODUCT",
+                "LINE_ITEM",
+                "BET_DELIVERABLE_SERVICE",
+                "CONTENT",
+                "CONVERSATION",
+                "BET_ALERT",
+                "PORTAL",
+                "QUOTE",
+                "FORM_SUBMISSION_INBOUNDDB",
+                "QUOTA",
+                "UNSUBSCRIBE",
+                "COMMUNICATION",
+                "FEEDBACK_SUBMISSION",
+                "ATTRIBUTION",
+                "SALESFORCE_SYNC_ERROR",
+                "RESTORABLE_CRM_OBJECT",
+                "HUB",
+                "LANDING_PAGE",
+                "UNKNOWN"
+            ]
+        },
+        "integratorObjectId": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

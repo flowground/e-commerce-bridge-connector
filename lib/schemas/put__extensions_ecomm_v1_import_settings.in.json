@@ -1,0 +1,23 @@
+{
+    "type": "object",
+    "properties": {
+        "appId": {
+            "required": false,
+            "type": "integer",
+            "format": "int32"
+        },
+        "requestBody": {
+            "type": "object",
+            "required": [
+                "importTriggerUri"
+            ],
+            "properties": {
+                "importTriggerUri": {
+                    "type": "string",
+                    "example": "https://my.example.com/hubspot/ecomm/import-callback",
+                    "description": "The URI of your service that will be called when an import begins."
+                }
+            }
+        }
+    }
+}

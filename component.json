@@ -1,0 +1,343 @@
+{
+    "title": "ECommerce Bridge",
+    "description": "The ECommerce Bridge provides a process for syncing eCommerce data into HubSpot by defining mappings from your data schema to what is stored in HubSpot and applying those mappings each time data is sent. To learn more about the motivations, use cases, and see a walkthrough, check out [the overview docs](https://git.hubteam.com/HubSpot/IntegrationsPlatform-ECommBridge/blob/master/docs/api/reference.md)",
+    "docsUrl": "",
+    "url": "https://api.hubapi.com/api-catalog/v0/apis/extensions/v1/ecomm/",
+    "envVars": {
+        "OAUTH_CLIENT_ID": {
+            "description": "OAuth Client ID"
+        },
+        "OAUTH_CLIENT_SECRET": {
+            "description": "OAuth Client Secret"
+        }
+    },
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://api.hubapi.com/extensions/ecomm",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "oauth2": {
+                "label": "oauth2",
+                "viewClass": "OAuthFieldView"
+            },
+            "auth_hapikey": {
+                "label": "hapikey (hapikey)",
+                "viewClass": "TextFieldView"
+            }
+        },
+        "oauth2": {
+            "client_id": "{{OAUTH_CLIENT_ID}}",
+            "client_secret": "{{OAUTH_CLIENT_SECRET}}",
+            "auth_uri": "https://app.hubspot.com/oauth/authorize",
+            "token_uri": "https://api.hubapi.com/oauth/v1/token",
+            "scopes": [
+                "integration-sync"
+            ]
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "put__extensions_ecomm_v1_import_pages__importStartedAt___objectType__end": {
+            "main": "./lib/actions/put__extensions_ecomm_v1_import_pages__importStartedAt___objectType__end.js",
+            "title": "Signal the end of an import for a given {objectType}. Once this call has been made, HubSpot will start processing the data for {objectType} within the context of this import.",
+            "description": "Signal the end of an import for a given {objectType}. Once this call has been made, HubSpot will start processing the data for {objectType} within the context of this import.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/put__extensions_ecomm_v1_import_pages__importStartedAt___objectType__end.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get__extensions_ecomm_v1_import_pages__importStartedAt___objectType___pageNumber_": {
+            "main": "./lib/actions/get__extensions_ecomm_v1_import_pages__importStartedAt___objectType___pageNumber_.js",
+            "title": "Retrieve a previously sent page of data from a batch import.",
+            "description": "Retrieve a previously sent page of data from a batch import.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get__extensions_ecomm_v1_import_pages__importStartedAt___objectType___pageNumber_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "put__extensions_ecomm_v1_import_pages__importStartedAt___objectType___pageNumber_": {
+            "main": "./lib/actions/put__extensions_ecomm_v1_import_pages__importStartedAt___objectType___pageNumber_.js",
+            "title": "Send a page of data for batch import. You are responsible for ensuring the uniqueness of the pageNumber within an importStartedAt/objectType combination.",
+            "description": "Send a page of data for batch import. You are responsible for ensuring the uniqueness of the pageNumber within an importStartedAt/objectType combination.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/put__extensions_ecomm_v1_import_pages__importStartedAt___objectType___pageNumber_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get__extensions_ecomm_v1_import_settings": {
+            "main": "./lib/actions/get__extensions_ecomm_v1_import_settings.js",
+            "title": "Read the import settings, such as import URI that will be called when an import starts for a given app. Use your Developer HAPI Key to make this request.",
+            "description": "Read the import settings, such as import URI that will be called when an import starts for a given app. Use your Developer HAPI Key to make this request.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get__extensions_ecomm_v1_import_settings.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "put__extensions_ecomm_v1_import_settings": {
+            "main": "./lib/actions/put__extensions_ecomm_v1_import_settings.js",
+            "title": "Update the import settings, such as import URI that will be called when an import starts for a given app. Use your Developer HAPI Key to make this request.",
+            "description": "Update the import settings, such as import URI that will be called when an import starts for a given app. Use your Developer HAPI Key to make this request.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/put__extensions_ecomm_v1_import_settings.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post__extensions_ecomm_v1_installs": {
+            "main": "./lib/actions/post__extensions_ecomm_v1_installs.js",
+            "title": "Enable eCommerce functionality and add eCommerce properties, reporting dashboard, and email templates to your portal. Use your portal HAPI Key to make this request.",
+            "description": "Enable eCommerce functionality and add eCommerce properties, reporting dashboard, and email templates to your portal. Use your portal HAPI Key to make this request.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post__extensions_ecomm_v1_installs.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get__extensions_ecomm_v1_installs_status": {
+            "main": "./lib/actions/get__extensions_ecomm_v1_installs_status.js",
+            "title": "Check whether your portal has settings enabled and eCommerce functionality installed. Your portal will not be able to receive sync messages until both are true. Use your portal HAPI Key to make this request.",
+            "description": "Check whether your portal has settings enabled and eCommerce functionality installed. Your portal will not be able to receive sync messages until both are true. Use your portal HAPI Key to make this request.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get__extensions_ecomm_v1_installs_status.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "post__extensions_ecomm_v1_installs_uninstall": {
+            "main": "./lib/actions/post__extensions_ecomm_v1_installs_uninstall.js",
+            "title": "Disable eCommerce specific functionality, such as eCommerce workflows, from your portal. Use your portal HAPI Key to make this request.",
+            "description": "Disable eCommerce specific functionality, such as eCommerce workflows, from your portal. Use your portal HAPI Key to make this request.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/post__extensions_ecomm_v1_installs_uninstall.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get__extensions_ecomm_v1_settings": {
+            "main": "./lib/actions/get__extensions_ecomm_v1_settings.js",
+            "title": "Read the sync settings for a given app or portal. As an application developer, use your developer HAPI Key to make this request. As a customer developer, use your portal HAPI Key to make this request.",
+            "description": "Read the sync settings for a given app or portal. As an application developer, use your developer HAPI Key to make this request. As a customer developer, use your portal HAPI Key to make this request.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get__extensions_ecomm_v1_settings.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "put__extensions_ecomm_v1_settings": {
+            "main": "./lib/actions/put__extensions_ecomm_v1_settings.js",
+            "title": "Update the sync settings for a given app or portal. This will update the settings for all portals with your app installed, and changes to properties will be applied within the next few hours. As an application developer, use your developer HAPI Key to make this request. As a customer developer, use your portal HAPI Key to make this request.",
+            "description": "Update the sync settings for a given app or portal. This will update the settings for all portals with your app installed, and changes to properties will be applied within the next few hours. As an application developer, use your developer HAPI Key to make this request. As a customer developer, use your portal HAPI Key to make this request.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/put__extensions_ecomm_v1_settings.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "delete__extensions_ecomm_v1_settings": {
+            "main": "./lib/actions/delete__extensions_ecomm_v1_settings.js",
+            "title": "Delete the sync settings for a given app or portal. This cannot be undone, so it is recommended that if you would like to disable sync messages from being applied using your property mappings that you disable your settings rather than deleting them. As an application developer, use your developer HAPI Key to make this request. As a customer developer, use your portal HAPI Key to make this request.",
+            "description": "Delete the sync settings for a given app or portal. This cannot be undone, so it is recommended that if you would like to disable sync messages from being applied using your property mappings that you disable your settings rather than deleting them. As an application developer, use your developer HAPI Key to make this request. As a customer developer, use your portal HAPI Key to make this request.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/delete__extensions_ecomm_v1_settings.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get__extensions_ecomm_v1_sync_errors": {
+            "main": "./lib/actions/get__extensions_ecomm_v1_sync_errors.js",
+            "title": "See all errors that have occurred in attempting to process sync messages for a given app or portal. As an application developer, use your developer HAPI Key to make this request. As a customer developer, use your portal HAPI Key to make this request.",
+            "description": "See all errors that have occurred in attempting to process sync messages for a given app or portal. As an application developer, use your developer HAPI Key to make this request. As a customer developer, use your portal HAPI Key to make this request.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get__extensions_ecomm_v1_sync_errors.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get__extensions_ecomm_v1_sync_errors_app__appId_": {
+            "main": "./lib/actions/get__extensions_ecomm_v1_sync_errors_app__appId_.js",
+            "title": "get__extensions_ecomm_v1_sync_errors_app__appId_",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get__extensions_ecomm_v1_sync_errors_app__appId_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get__extensions_ecomm_v1_sync_errors_object__objectType___integratorObjectId_": {
+            "main": "./lib/actions/get__extensions_ecomm_v1_sync_errors_object__objectType___integratorObjectId_.js",
+            "title": "get__extensions_ecomm_v1_sync_errors_object__objectType___integratorObjectId_",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get__extensions_ecomm_v1_sync_errors_object__objectType___integratorObjectId_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get__extensions_ecomm_v1_sync_errors_portal__portalId_": {
+            "main": "./lib/actions/get__extensions_ecomm_v1_sync_errors_portal__portalId_.js",
+            "title": "get__extensions_ecomm_v1_sync_errors_portal__portalId_",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get__extensions_ecomm_v1_sync_errors_portal__portalId_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "put__extensions_ecomm_v1_sync_messages__objectType_": {
+            "main": "./lib/actions/put__extensions_ecomm_v1_sync_messages__objectType_.js",
+            "title": "Send changes in eCommerce data to HubSpot.",
+            "description": "Send changes in eCommerce data to HubSpot.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/put__extensions_ecomm_v1_sync_messages__objectType_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "get__extensions_ecomm_v1_sync_status__objectType___integratorObjectId_": {
+            "main": "./lib/actions/get__extensions_ecomm_v1_sync_status__objectType___integratorObjectId_.js",
+            "title": "get__extensions_ecomm_v1_sync_status__objectType___integratorObjectId_",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/get__extensions_ecomm_v1_sync_status__objectType___integratorObjectId_.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}
